@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: development
+  application:
+    name: try-spring-boot-virtual-threads
+    threads:
+      virtual:
+        enabled: true
