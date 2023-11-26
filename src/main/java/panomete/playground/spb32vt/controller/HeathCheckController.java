@@ -5,16 +5,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import panomete.playground.spb32vt.payloads.HeathCheckDto;
 
 @Slf4j
 @Controller
 public class HeathCheckController {
 
     @GetMapping("/ping")
-    public ResponseEntity<String> ping() {
+    public ResponseEntity<HeathCheckDto> ping() {
         log.info("Rest controller method has been called {}", Thread.currentThread());
         return new ResponseEntity<>(
-                "pong",
+                new HeathCheckDto(
+                        "pong",
+                        HttpStatus.OK
+                ),
                 HttpStatus.OK
         );
     }
